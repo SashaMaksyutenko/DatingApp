@@ -1,6 +1,4 @@
-﻿using API.Data;
-using API.Entities;
-using API.Interfaces;
+﻿using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
