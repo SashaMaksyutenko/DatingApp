@@ -7,7 +7,6 @@ namespace API.SignalR
     public class PresenceHub : Hub
     {
         private readonly PresenceTracker _tracker;
-
         public PresenceHub(PresenceTracker tracker)
         {
             _tracker = tracker; 
@@ -20,7 +19,6 @@ namespace API.SignalR
             var currentUsers = await _tracker.GetOnlineUsers();
             await Clients.Caller.SendAsync("GetOnlineUsers", currentUsers);
         }
-
         public override async Task OnDisconnectedAsync(Exception ex)
         {
             var isOffline = await _tracker.UserDisconnected(Context.User.GetUsername(), Context.ConnectionId);
