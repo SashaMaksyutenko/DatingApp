@@ -1,0 +1,26 @@
+# fly.toml app configuration file generated for datingapp87 on 2024-04-03T19:13:41+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'datingapp87'
+primary_region = 'waw'
+
+[build]
+  image = 'sasha87/datingapp:latest'
+[env]
+  ASPNETCORE_URLS="http://+:8080"
+  CloudinarySettings__CloudName="dzywymhes"
+  CloudinarySettings__ApiKey="143269487666724"
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
